@@ -2,15 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @font-face {
-  font-family: rejo;
-  src: url(./Fonts/Rejouice-Headline.ttf);
-}
 @font-face {
-  font-family: nb;
-  src: url(./Fonts/NBInternationalProBoo.ttf);
-} */
-/* ===( CODE AASHU )=== */
+  font-family: "NB";
+  src: url("https://db.onlinewebfonts.com/t/23255fa3ff7a89589800cea3092f154f.eot");
+  src: url("https://db.onlinewebfonts.com/t/23255fa3ff7a89589800cea3092f154f.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/23255fa3ff7a89589800cea3092f154f.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/23255fa3ff7a89589800cea3092f154f.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/23255fa3ff7a89589800cea3092f154f.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/23255fa3ff7a89589800cea3092f154f.svg#NB International Regular Webfont")format("svg");
+}
+
 ::selection {
   color: #f53607;
 }
@@ -18,7 +19,7 @@
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
-  font-family: nb;
+  font-family: 'NB', sans-serif;
 }
 html,
 body {
