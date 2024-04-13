@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
 import Image from "next/image";
-import video from '../public/Assets/wibe-studio.mp4'
+import Navbar from "./Navbar/page";
 
 export default function Home() {
   useEffect(() => {
@@ -332,6 +332,7 @@ export default function Home() {
 
   return (
     <div className="main">
+      <Navbar/>
       <div className="loader">
         <h2>
           <span>Tomorrow&apos;s</span>
@@ -355,7 +356,7 @@ export default function Home() {
               autoplay
                 muted
                 loop
-                src={video}
+                src="/Assets/wibe-studio.mp4"
               ></video>
               <div className="play">
                 <i className="ri-play-circle-fill"></i>
