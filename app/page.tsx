@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
 import Image from "next/image";
+import Navbar from "./Navbar/page";
 
 export default function Home() {
   useEffect(() => {
@@ -331,9 +332,10 @@ export default function Home() {
 
   return (
     <div className="main">
+      <Navbar/>
       <div className="loader">
         <h2>
-          <span>Tomorrow's</span>
+          <span>Tomorrow&apos;s</span>
           <span>Brands,</span>
           <span>Today.™</span>
         </h2>
@@ -342,7 +344,7 @@ export default function Home() {
         <div className="menu">
           <div className="menu-header">
             <h2>
-              <a href="./index.html">rejouice</a>
+              <a href="./index.html">Louis Vuitton</a>
             </h2>
             <h2 id="close">
               <a href="#">Close</a>
@@ -350,10 +352,11 @@ export default function Home() {
           </div>
           <div className="menu-sec">
             <div className="vid">
-              <video
+              <video 
+              autoplay
                 muted
                 loop
-                src="/Assets/RJ-2.0-Video background .webm"
+                src="/Assets/wibe-studio.mp4"
               ></video>
               <div className="play">
                 <i className="ri-play-circle-fill"></i>
