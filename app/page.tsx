@@ -341,72 +341,32 @@ export default function Home() {
         </h2>
       </div>
       <div className="page1">
-        <div className="menu">
-          <div className="menu-header">
-            <h2>
-              <a href="./index.html">Louis Vuitton</a>
-            </h2>
-            <h2 id="close">
-              <a href="#">Close</a>
-            </h2>
-          </div>
-          <div className="menu-sec">
-            <div className="vid">
-              <video 
-              autoplay
-                muted
-                loop
-                src="/Assets/wibe-studio.mp4"
-              ></video>
-              <div className="play">
-                <i className="ri-play-circle-fill"></i>
-                <h5 id="play">Play Reel</h5>
-                <h4>—01:18</h4>
-              </div>
-            </div>
-            <div className="links">
-              <h3>Home</h3>
-              <h3>Work</h3>
-              <h3>Services & Models</h3>
-              <h3>About</h3>
-              <h3>Contact</h3>
-              <button>Take a seat</button>
-            </div>
-          </div>
-          <div className="menu-border"></div>
-          <div className="small-links">
-            <h4>Tomorrow's Brands, Today.™</h4>
-            <div className="social">
-              <h3>
-                X <i className="ri-arrow-right-up-line"></i> Instagram{" "}
-                <i className="ri-arrow-right-up-line"></i> LinkedIn{" "}
-                <i className="ri-arrow-right-up-line"></i>{" "}
-              </h3>
-            </div>
-          </div>
-        </div>
         <div className="cursor">
           <h4>Play Reel</h4>
         </div>
-        <video loop muted src="/Assets/RJ-2.0-Video background .webm"></video>
-        <div className="inner-content">
-          <nav>
-            <h2>
-              <a href="./index.html">The Venture Agency.</a>
+        <video loop muted src="/Assets/wibe-studio.mp4"></video>
+        <nav>
+            <h2 className="text-4xl">
+              <a href="./index.html" >LOUIS VUITTON.</a>
             </h2>
             <h2 id="menu">
               <a href="#">Menu</a>
             </h2>
           </nav>
+        <div className="inner-content tl:0 w:fit h:fit p-y:40fy transform shift-y:100% (.is-loader-ended):shift-y:0% $$14$$ (.is-loader-ended):tween:all,1.4s,1.945s,easeOutSlow">
           <h1>
-            <span>r</span>
-            <span>e</span>
-            <span>j</span>
-            <span>o</span>
-            <span>u</span>
-            <span>i</span>
-            <span>c</span>
-            <span>e</span>
+            <span>L</span>
+            <span>O</span>
+            <span>U</span>
+            <span>I</span>
+            <span>S</span>
+            <span>V</span>
+            <span>U</span>
+            <span>I</span>
+            <span>T</span>
+            <span>T</span>
+            <span>O</span>
+            <span>N</span>
           </h1>
         </div>
       </div>
