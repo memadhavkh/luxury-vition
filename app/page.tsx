@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
 import Image from "next/image";
-import Navbar from "./Navbar/page";
+import Navbar from "@/Components/Navbar";
 
 export default function Home() {
   useEffect(() => {
@@ -332,7 +332,7 @@ export default function Home() {
 
   return (
     <div className="main">
-      <Navbar/>
+      <Navbar />
       <div className="loader">
         <h2>
           <span>Tomorrow&apos;s</span>
@@ -352,12 +352,7 @@ export default function Home() {
           </div>
           <div className="menu-sec">
             <div className="vid">
-              <video 
-              autoplay
-                muted
-                loop
-                src="/Assets/wibe-studio.mp4"
-              ></video>
+              <video autoPlay muted loop src="/Assets/wibe-studio.mp4"></video>
               <div className="play">
                 <i className="ri-play-circle-fill"></i>
                 <h5 id="play">Play Reel</h5>
@@ -375,7 +370,7 @@ export default function Home() {
           </div>
           <div className="menu-border"></div>
           <div className="small-links">
-            <h4>Tomorrow's Brands, Today.™</h4>   
+            <h4>Tomorrow's Brands, Today.™</h4>
             <div className="social">
               <h3>
                 X <i className="ri-arrow-right-up-line"></i> Instagram{" "}
@@ -613,11 +608,7 @@ export default function Home() {
         </div>
       </div>
       <div className="page6">
-        <video
-          muted
-          loop
-          src="/Assets/RJ-BALL-BLUE-ORANGE-scaled.webm"
-        ></video>
+        <video muted loop src="/Assets/RJ-BALL-BLUE-ORANGE-scaled.webm"></video>
         <svg
           className="abs tl:0 fit transform rotate:-90deg"
           viewBox="0 0 100 100"
