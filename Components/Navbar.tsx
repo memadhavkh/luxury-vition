@@ -4,30 +4,84 @@ import { FaCirclePlay } from "react-icons/fa6";
 import { GoArrowUpRight } from "react-icons/go";
 import { RxCross1 } from "react-icons/rx";
 import { GoArrowRight } from "react-icons/go";
-import { motion } from "framer-motion";
+import { m, motion } from "framer-motion";
 import { Button } from "./ui/button";
-import { useState } from "react";
+import { useEffect } from "react";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useGlobalState } from "@/context/StateProvider";
 
 const Navbar = () => {
-  const [menuActive, setMenuActive] = useState(false);
+  const container = useRef<HTMLSpanElement | null>(null);
+  const video = useRef<HTMLVideoElement | null>(null);
+  const playReel = useRef<HTMLDivElement | null>(null);
+  const smallLinks = useRef<HTMLDivElement | null>(null);
+  const smallLink = useRef<HTMLDivElement | null>(null);
+  const Links = useRef(null);
+  const border = useRef<HTMLDivElement | null>(null);
 
-  const toggleMenu = () => {
-    setMenuActive(!menuActive);
-  };
+  const { menu, setMenu } = useGlobalState() as any;
+
+  useGSAP(() => {
+    gsap.from(video.current, {
+      scale: 0.1,
+      duration: 1,
+      ease: "none",
+    });
+    gsap.from(playReel.current, {
+      y: -100,
+      duration: 1.1,
+    });
+    gsap.from(smallLinks.current, {
+      x: 200,
+      duration: 2,
+      delay: -0.4,
+    });
+    gsap.from(smallLink.current, {
+      x: 200,
+      duration: 2,
+      delay: -0.4,
+    });
+    gsap.to(border.current, {
+      width: 95 + "vw",
+      duration: 1.5,
+      delay: -0.1,
+    });
+  }, [menu]);
+
+  useGSAP(() => {
+    gsap.from(" .Links ", {
+      y: 100,
+      duration: 0.7,
+      stagger: 0.1,
+    });
+  }, [menu]);
+
   return (
-    <>
-      <RxCross1
-        className="absolute top-4 right-5 size-6"
-        onClick={toggleMenu}
-      />
-      <div
-        className={`flex justify-around items-center bg-[#FEFAF6] w-full h-[70vh] ${
-          menuActive ? "active" : "hidden"
-        }`}
-      >
+    <div
+      style={{
+        maxHeight: menu === "active" ? "80vh" : "0",
+        transition: "max-height 0.5s ease",
+        overflow: "hidden",
+        position: "absolute",
+        zIndex: 10,
+        width: "100vw",
+      }}
+    >
+      <span ref={playReel}>
+        <RxCross1
+          className="absolute top-6 right-8 size-6"
+          onClick={() => {
+            setMenu("inactive");
+          }}
+        />
+      </span>
+      <div className="flex justify-around items-center bg-[#FEFAF6] w-full h-[70vh] ">
         <div className="flex flex-col -translate-x-[135px] mt-[-100px]">
           <h3 className="text-[20px]">LOUIS VUITTON </h3>
           <video
+            ref={video}
             src="/Assets/LV-2.mp4"
             className="w-[22vw] h-auto rounded"
             loop
@@ -45,34 +99,34 @@ const Navbar = () => {
         </div>
 
         <div className="flex flex-col mr-[10rem] relative mt-[-10px]">
-          {/* <div className="overflow-hidden h-[4rem] relative elem">
-            <h1 className="text-4xl font-normal absolute top-0 left-0 go-up">
-              Women
-            </h1>
-            <h1 className="text-4xl font-normal absolute top-[100%] left-0 reveal">
-              Women
-            </h1>
-          </div> */}
-          <h1 className="text-[43px] leading-none font-normal mx-0 px-0">
-            Women
+          <h1 className="Links text-[43px] leading-none font-normal ">Women</h1>
+          <h1 className="Links text-[43px] leading-none font-normal">Men</h1>
+          <h1 className="Links text-[43px] leading-none font-normal">Bags</h1>
+          <h1 className="Links text-[43px] leading-none font-normal">
+            Watches
           </h1>
-          <h1 className="text-[43px] leading-none font-normal">Men</h1>
-          <h1 className="text-[43px] leading-none font-normal">Bags</h1>
-          <h1 className="text-[43px] leading-none font-normal">Watches</h1>
-          <h1 className="text-[43px] leading-none font-normal">Perfumes</h1>
-          <Button variant="outline" className="mt-5 border-black bg-[#FEFAF6]">
+          <h1 className="Links text-[43px] leading-none font-normal">
+            Perfumes
+          </h1>
+          <Button
+            variant="outline"
+            className="Links mt-5 border-black bg-[#FEFAF6]"
+          >
             Discover Collections
           </Button>
         </div>
       </div>
 
-      <div className="bg-black w-[97%] h-[1px] mx-auto"></div>
+      <div ref={border} className="bg-black w-[97%] h-[1px] mx-auto"></div>
 
-      <div className="flex items-center py-2 justify-between mx-0 bg-[#FEFAF6]">
-        <h2 className="font-light ml-5 text-[16px] text-black font-serif">
+      <div className="flex items-center py-2 justify-between mx-0 bg-[#FEFAF6]"> 
+        <h2
+          ref={smallLink}
+          className="font-light ml-5 text-[16px] text-black font-serif"
+        >
           Shop Smart, Live Well.™
         </h2>
-        <div className="flex items-center gap-2 mr-5 ">
+        <div ref={smallLinks} className="flex items-center gap-2 mr-5 ">
           <h2 className="flex">
             X <GoArrowUpRight className="translate-y-1" />
           </h2>
@@ -84,7 +138,8 @@ const Navbar = () => {
           </h2>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default Navbar;
+ 

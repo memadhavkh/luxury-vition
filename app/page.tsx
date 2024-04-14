@@ -12,32 +12,6 @@ import HomePage from "@/Components/HomePage";
 
 export default function Home() {
   useEffect(() => {
-    function loader() {
-      var tl = gsap.timeline();
-      tl.from(".loader  span", {
-        x: 100,
-        duration: 1.2,
-        stagger: 0.03,
-        delay: 0.1,
-      });
-      tl.to(".loader  span", {
-        x: -100,
-        duration: 0.6,
-        opacity: 0,
-        stagger: 0.03,
-      });
-      tl.to(".loader", {
-        duration: 0.5,
-        opacity: 0,
-        display: "none",
-      });
-      tl.from(".page1 .inner-content h2 span", {
-        y: 60,
-        duration: 0.5,
-        delay: -0.3,
-        stagger: 0.05,
-      });
-    }
     function crsrAnim() {
       const cursor = document.querySelector(".cursor");
       const innerContent = document.querySelector(".inner-content");
@@ -245,54 +219,6 @@ export default function Home() {
         },
       });
     }
-    function menuAnim() {
-      const menuBtn = document.querySelector(".page1 .inner-content nav #menu");
-      const menu = document.querySelector(".page1 .menu");
-      const closeBtn = document.querySelector(
-        ".page1 .menu .menu-header #close"
-      );
-      const video = document.querySelector(".page1 .menu .menu-sec .vid video");
-      const playReel = document.querySelector(
-        ".page1 .menu .menu-sec .vid .play"
-      );
-      const smallLinks = document.querySelector(".page1 .menu .small-links");
-      const Links = document.querySelectorAll(
-        ".page1 .menu .menu-sec .links h3 , .page1 .menu .menu-sec .links button"
-      );
-      const border = document.querySelector(".page1 .menu .menu-border");
-
-      menuBtn?.addEventListener("click", () => {
-        menu?.classNameList.add("active");
-        menu.style.transition = `height .5s ease`;
-
-        gsap.from(video, {
-          scale: 0.1,
-          duration: 1,
-        });
-        gsap.from(playReel, {
-          y: -100,
-          duration: 1.1,
-        });
-        gsap.from(smallLinks, {
-          x: 200,
-          duration: 2,
-          delay: -0.4,
-        });
-        gsap.from(Links, {
-          y: 100,
-          duration: 0.7,
-          stagger: 0.1,
-        });
-        gsap.to(border, {
-          width: 95 + "vw",
-          duration: 1.5,
-          delay: -0.1,
-        });
-      });
-      closeBtn?.addEventListener("click", () => {
-        menu.classNameList.remove("active");
-      });
-    }
     function swiper() {
       var swiper = new Swiper(".mySwiper", {
         slidesPerView: 5,
@@ -319,7 +245,6 @@ export default function Home() {
         },
       });
     }
-    loader();
     crsrAnim();
     loco();
     page2TopAnim();
@@ -328,15 +253,13 @@ export default function Home() {
     page5TopAnim();
     page6Anim();
     page7TopAnim();
-    menuAnim();
     swiper();
   }, []);
 
   return (
-    <div className="main">
+    <div className="main  min-h-screen">
       <Navbar />
       <Loader />
-
       <HomePage />
 
       <div className="page2">
@@ -552,7 +475,7 @@ export default function Home() {
             cy="50"
             r="49"
             stroke="#fff"
-            stroke-width="0.25"
+            strokeWidth="0.25"
             fill="none"
             className="o:0.3 dasharray:302 dashoffset:604 (.in-view):dashoffset:400 (.in-view):tween:all,2.8s,easeOutSlow "
           ></circle>
@@ -561,7 +484,7 @@ export default function Home() {
             cy="50"
             r="49"
             stroke="#fff"
-            stroke-width="0.25"
+            strokeWidth="0.25"
             fill="none"
             className="dasharray:302 dashoffset:302 (.in-view):dashoffset:100 (.in-view):tween:all,2.8s,easeOutSlow "
           ></circle>
@@ -742,7 +665,7 @@ export default function Home() {
           <h1>Meet your team</h1>
         </div>
       </div>
-      <footer>
+      <footer className="w-[100vw]">
         <div className="footer-top">
           <div className="first">
             <div className="first-top">

@@ -1,6 +1,36 @@
+"use client";
 import React from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Loader = () => {
+  useGSAP(() => {
+    var tl = gsap.timeline();
+    tl.from(".loader  span", {
+      x: 100,
+      duration: 1.2,
+      stagger: 0.03,
+      delay: 0.1,
+    });
+    tl.to(".loader  span", {
+      x: -100,
+      duration: 0.6,
+      opacity: 0,
+      stagger: 0.03,
+    });
+    tl.to(".loader", {
+      duration: 0.5,
+      opacity: 0,
+      display: "none",
+    });
+    tl.from(" h2 span", {
+      y: 60,
+      duration: 0.5,
+      delay: -0.3,
+      stagger: 0.05,
+    });
+  });
+
   return (
     <div className="loader bg-black absolute top-0 left-0 h-screen w-screen z-50 flex items-center justify-center transition-all duration-400 ease-in-out">
       <span className="inline-block text-white font-light">Shop</span>
