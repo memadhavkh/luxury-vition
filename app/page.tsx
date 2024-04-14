@@ -372,7 +372,7 @@ export default function Home() {
           </div>
           <div className="menu-border"></div>
           <div className="small-links">
-            <h4>Tomorrow's Brands, Today.™</h4>
+            <h4>Tomorrow's Brands, Today.™</h4>   
             <div className="social">
               <h3>
                 X <i className="ri-arrow-right-up-line"></i> Instagram{" "}
