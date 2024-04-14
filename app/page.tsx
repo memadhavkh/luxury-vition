@@ -7,18 +7,20 @@ import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
 import Image from "next/image";
 import Navbar from "@/Components/Navbar";
+import Loader from "@/Components/Loader";
+import HomePage from "@/Components/HomePage";
 
 export default function Home() {
   useEffect(() => {
     function loader() {
       var tl = gsap.timeline();
-      tl.from(".loader span", {
+      tl.from(".loader  span", {
         x: 100,
         duration: 1.2,
         stagger: 0.03,
         delay: 0.1,
       });
-      tl.to(".loader span", {
+      tl.to(".loader  span", {
         x: -100,
         duration: 0.6,
         opacity: 0,
@@ -29,7 +31,7 @@ export default function Home() {
         opacity: 0,
         display: "none",
       });
-      tl.from(".page1 .inner-content h1 span", {
+      tl.from(".page1 .inner-content h2 span", {
         y: 60,
         duration: 0.5,
         delay: -0.3,
@@ -317,6 +319,7 @@ export default function Home() {
         },
       });
     }
+    loader();
     crsrAnim();
     loco();
     page2TopAnim();
@@ -325,7 +328,6 @@ export default function Home() {
     page5TopAnim();
     page6Anim();
     page7TopAnim();
-    loader();
     menuAnim();
     swiper();
   }, []);
@@ -333,78 +335,10 @@ export default function Home() {
   return (
     <div className="main">
       <Navbar />
-      <div className="loader">
-        <h2>
-          <span>Tomorrow&apos;s</span>
-          <span>Brands,</span>
-          <span>Today.™</span>
-        </h2>
-      </div>
-      <div className="page1">
-        <div className="menu">
-          <div className="menu-header">
-            <h2>
-              <a href="./index.html">Louis Vuitton</a>
-            </h2>
-            <h2 id="close">
-              <a href="#">Close</a>
-            </h2>
-          </div>
-          <div className="menu-sec">
-            <div className="vid">
-              <video autoPlay muted loop src="/Assets/wibe-studio.mp4"></video>
-              <div className="play">
-                <i className="ri-play-circle-fill"></i>
-                <h5 id="play">Play Reel</h5>
-                <h4>—01:18</h4>
-              </div>
-            </div>
-            <div className="links">
-              <h3>Home</h3>
-              <h3>Work</h3>
-              <h3>Services & Models</h3>
-              <h3>About</h3>
-              <h3>Contact</h3>
-              <button>Take a seat</button>
-            </div>
-          </div>
-          <div className="menu-border"></div>
-          <div className="small-links">
-            <h4>Tomorrow's Brands, Today.™</h4>
-            <div className="social">
-              <h3>
-                X <i className="ri-arrow-right-up-line"></i> Instagram{" "}
-                <i className="ri-arrow-right-up-line"></i> LinkedIn{" "}
-                <i className="ri-arrow-right-up-line"></i>{" "}
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div className="cursor">
-          <h4>Play Reel</h4>
-        </div>
-        <video loop muted src="/Assets/RJ-2.0-Video background .webm"></video>
-        <div className="inner-content">
-          <nav>
-            <h2>
-              <a href="./index.html">The Venture Agency.</a>
-            </h2>
-            <h2 id="menu">
-              <a href="#">Menu</a>
-            </h2>
-          </nav>
-          <h1>
-            <span>r</span>
-            <span>e</span>
-            <span>j</span>
-            <span>o</span>
-            <span>u</span>
-            <span>i</span>
-            <span>c</span>
-            <span>e</span>
-          </h1>
-        </div>
-      </div>
+      <Loader />
+
+      <HomePage />
+
       <div className="page2">
         <div className="page2-top">
           <div className="first-text">

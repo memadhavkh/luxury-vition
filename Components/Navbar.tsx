@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { FaCirclePlay } from "react-icons/fa6";
 import { GoArrowUpRight } from "react-icons/go";
@@ -5,12 +6,25 @@ import { RxCross1 } from "react-icons/rx";
 import { GoArrowRight } from "react-icons/go";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [menuActive, setMenuActive] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuActive(!menuActive);
+  };
   return (
     <>
-      <RxCross1 className="absolute top-4 right-5 size-6" />
-      <div className="flex justify-around items-center bg-[#FEFAF6] w-full h-[70vh] ">
+      <RxCross1
+        className="absolute top-4 right-5 size-6"
+        onClick={toggleMenu}
+      />
+      <div
+        className={`flex justify-around items-center bg-[#FEFAF6] w-full h-[70vh] ${
+          menuActive ? "active" : "hidden"
+        }`}
+      >
         <div className="flex flex-col -translate-x-[135px] mt-[-100px]">
           <h3 className="text-[20px]">LOUIS VUITTON </h3>
           <video
@@ -56,7 +70,7 @@ const Navbar = () => {
 
       <div className="flex items-center py-2 justify-between mx-0 bg-[#FEFAF6]">
         <h2 className="font-light ml-5 text-[16px] text-black font-serif">
-          Shop Smart, Live Well.
+          Shop Smart, Live Well.™
         </h2>
         <div className="flex items-center gap-2 mr-5 ">
           <h2 className="flex">
