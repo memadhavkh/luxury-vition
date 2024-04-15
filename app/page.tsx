@@ -84,9 +84,9 @@ export default function Home() {
           trigger: ".first-text h3,.second-text h3",
           start: "top 100%",
           end: "top 98%",
-          duration: 0.8,
           scrub: 1,
         },
+        duration: 0.8,
       });
       gsap.to(".page2-top-border", {
         width: 94 + "vw",
@@ -107,8 +107,8 @@ export default function Home() {
           start: "top 103%",
           end: "top 98%",
           scrub: 2,
-          stagger: 0.1,
         },
+        stagger: 0.1,
       });
     }
     // function page4Anim() {
