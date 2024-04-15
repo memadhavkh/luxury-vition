@@ -134,9 +134,9 @@ export default function Home() {
           trigger: ".page5 .page5-top .top-text h3",
           start: "top 100%",
           end: "top 95%",
-          duration: 0.8,
           scrub: 1,
         },
+        duration: 0.8,
       });
       gsap.to(".page5-top-border", {
         width: 94 + "vw",
@@ -145,9 +145,9 @@ export default function Home() {
           trigger: ".page5-top-border",
           start: "top 85%",
           end: "top 80%",
-          duration: 5,
           scrub: 1,
         },
+        duration: 5,
       });
       gsap.from(".page5 .page5-bottom .btm-text h2 .up span", {
         y: 200,
@@ -157,8 +157,8 @@ export default function Home() {
           start: "top 105%",
           end: "top 99%",
           scrub: 2,
-          stagger: 0.1,
         },
+        stagger: 0.1,
       });
     }
     // function page6Anim() {
@@ -192,9 +192,9 @@ export default function Home() {
           trigger: ".page7 .page7-top .top-text h3",
           start: "top 100%",
           end: "top 95%",
-          duration: 0.8,
           scrub: 1,
         },
+        duration: 0.8,
       });
       gsap.to(".page7-top-border", {
         width: 94 + "vw",
@@ -203,9 +203,9 @@ export default function Home() {
           trigger: ".page7-top-border",
           start: "top 85%",
           end: "top 80%",
-          duration: 5,
           scrub: 1,
         },
+        duration: 5,
       });
       gsap.from(".page7 .page7-bottom .btm-text h2 .up span", {
         y: 200,
@@ -215,8 +215,8 @@ export default function Home() {
           start: "top 105%",
           end: "top 99%",
           scrub: 2,
-          stagger: 0.1,
         },
+        stagger: 0.1,
       });
     }
     function swiper() {
@@ -239,10 +239,10 @@ export default function Home() {
           trigger: ".page3 .page3-text h1 ",
           start: "top 80%",
           end: "top 68%",
-          duration: 1.2,
-          stagger: 1,
           scrub: 1,
         },
+        duration: 1.2,
+        stagger: 1,
       });
     }
     // crsrAnim();
