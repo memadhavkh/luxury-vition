@@ -12,70 +12,70 @@ import HomePage from "@/Components/HomePage";
 
 export default function Home() {
   useEffect(() => {
-    function crsrAnim() {
-      const cursor = document.querySelector(".cursor");
-      const innerContent = document.querySelector(".inner-content");
+    // function crsrAnim() {
+    //   const cursor = document.querySelector(".cursor");
+    //   const innerContent = document.querySelector(".inner-content");
 
-      innerContent?.addEventListener("mousemove", (e) => {
-        gsap.to(cursor, {
-          x: e.x + "px",
-          y: e.y + "px",
-        });
-      });
+    //   innerContent?.addEventListener("mousemove", (e) => {
+    //     gsap.to(cursor, {
+    //       x: e.x + "px",
+    //       y: e.y + "px",
+    //     });
+    //   });
 
-      innerContent?.addEventListener("mouseenter", () => {
-        gsap.to(cursor, {
-          scale: 1,
-          opacity: 1,
-        });
-      });
-      innerContent?.addEventListener("mouseleave", () => {
-        gsap.to(cursor, {
-          scale: 0,
-          opacity: 0,
-        });
-      });
-    }
-    function loco() {
-      gsap.registerPlugin(ScrollTrigger);
+    //   innerContent?.addEventListener("mouseenter", () => {
+    //     gsap.to(cursor, {
+    //       scale: 1,
+    //       opacity: 1,
+    //     });
+    //   });
+    //   innerContent?.addEventListener("mouseleave", () => {
+    //     gsap.to(cursor, {
+    //       scale: 0,
+    //       opacity: 0,
+    //     });
+    //   });
+    // }
+    // function loco() {
+    //   gsap.registerPlugin(ScrollTrigger);
 
-      // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
+    //   // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
 
-      const locoScroll = new LocomotiveScroll({
-        el: document.querySelector(".main"),
-        smooth: true,
-      });
+    //   const locoScroll = new LocomotiveScroll({
+    //     el: document.querySelector(".main"),
+    //     smooth: true,
+    //   });
 
-      // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
-      locoScroll.on("scroll", ScrollTrigger.update);
+    //   // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+    //   locoScroll.on("scroll", ScrollTrigger.update);
 
-      // tell ScrollTrigger to use these proxy methods for the ".main" element since Locomotive Scroll is hijacking things
-      ScrollTrigger.scrollerProxy(".main", {
-        scrollTop(value) {
-          return arguments.length
-            ? locoScroll.scrollTo(value, 0, 0)
-            : locoScroll.scroll.instance.scroll.y;
-        }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-        getBoundingClientRect() {
-          return {
-            top: 0,
-            left: 0,
-            width: window.innerWidth,
-            height: window.innerHeight,
-          };
-        },
-        // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-        pinType: document.querySelector(".main").style.transform
-          ? "transform"
-          : "fixed",
-      });
+    //   // tell ScrollTrigger to use these proxy methods for the ".main" element since Locomotive Scroll is hijacking things
+    //   ScrollTrigger.scrollerProxy(".main", {
+    //     scrollTop(value) {
+    //       return arguments.length
+    //         ? locoScroll.scrollTo(value, 0, 0)
+    //         : locoScroll.scroll.instance.scroll.y;
+    //     }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+    //     getBoundingClientRect() {
+    //       return {
+    //         top: 0,
+    //         left: 0,
+    //         width: window.innerWidth,
+    //         height: window.innerHeight,
+    //       };
+    //     },
+    //     // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+    //     pinType: document.querySelector(".main").style.transform
+    //       ? "transform"
+    //       : "fixed",
+    //   });
 
-      // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
-      ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    //   // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
+    //   ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
-      // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-      ScrollTrigger.refresh();
-    }
+    //   // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+    //   ScrollTrigger.refresh();
+    // }
     function page2TopAnim() {
       gsap.from(".first-text h3, .second-text h3", {
         y: 60,
@@ -111,21 +111,21 @@ export default function Home() {
         },
       });
     }
-    function page4Anim() {
-      const videos = document.querySelectorAll(
-        ".page4 .page4-video .item video"
-      );
+    // function page4Anim() {
+    //   const videos = document.querySelectorAll(
+    //     ".page4 .page4-video .item video"
+    //   );
 
-      videos.forEach((video) => {
-        video.addEventListener("mouseenter", () => {
-          video.play();
-        });
-        video.addEventListener("mouseleave", () => {
-          video.pause();
-          video.currentTime = 0;
-        });
-      });
-    }
+    //   videos.forEach((video) => {
+    //     video.addEventListener("mouseenter", () => {
+    //       video.play();
+    //     });
+    //     video.addEventListener("mouseleave", () => {
+    //       video.pause();
+    //       video.currentTime = 0;
+    //     });
+    //   });
+    // }
     function page5TopAnim() {
       gsap.from(".page5 .page5-top .top-text h3", {
         y: 60,
@@ -161,29 +161,29 @@ export default function Home() {
         },
       });
     }
-    function page6Anim() {
-      const cursor = document.querySelector(".page6 .crsr");
-      const svg = document.querySelector(".page6");
+    // function page6Anim() {
+    //   const cursor = document.querySelector(".page6 .crsr");
+    //   const svg = document.querySelector(".page6");
 
-      svg?.addEventListener("mousemove", (ev) => {
-        gsap.to(cursor, {
-          x: ev.x - 50 + "px",
-          y: ev.y - 100 + "px",
-        });
-      });
-      svg?.addEventListener("mouseenter", () => {
-        gsap.to(cursor, {
-          scale: 1,
-          opacity: 1,
-        });
-      });
-      svg?.addEventListener("mouseleave", () => {
-        gsap.to(cursor, {
-          scale: 0,
-          opacity: 0,
-        });
-      });
-    }
+    //   svg?.addEventListener("mousemove", (ev) => {
+    //     gsap.to(cursor, {
+    //       x: ev.x - 50 + "px",
+    //       y: ev.y - 100 + "px",
+    //     });
+    //   });
+    //   svg?.addEventListener("mouseenter", () => {
+    //     gsap.to(cursor, {
+    //       scale: 1,
+    //       opacity: 1,
+    //     });
+    //   });
+    //   svg?.addEventListener("mouseleave", () => {
+    //     gsap.to(cursor, {
+    //       scale: 0,
+    //       opacity: 0,
+    //     });
+    //   });
+    // }
     function page7TopAnim() {
       gsap.from(".page7 .page7-top .top-text h3", {
         y: 60,
@@ -245,13 +245,13 @@ export default function Home() {
         },
       });
     }
-    crsrAnim();
-    loco();
+    // crsrAnim();
+    // loco();
     page2TopAnim();
     page3TextAnim();
-    page4Anim();
+    // page4Anim();
     page5TopAnim();
-    page6Anim();
+    // page6Anim();
     page7TopAnim();
     swiper();
   }, []);
@@ -530,20 +530,23 @@ export default function Home() {
               <div className="up">
                 <span>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data matters,
-                  yet it's emotion that drives
+                  yet it&apos;s emotion that drives
                 </span>
               </div>
             </h2>
             <h2>
               <div className="up">
                 <span>
-                  buying decisions. We don't believe in 'one size fits
+                  buying decisions. We don&apos;t believe in &apos;one size fits
                 </span>
               </div>
             </h2>
             <h2>
               <div className="up">
-                <span> all.' Instead, we collaborate closely with our</span>
+                <span>
+                  {" "}
+                  all.&apos; Instead, we collaborate closely with our
+                </span>
               </div>
             </h2>
             <h2>
