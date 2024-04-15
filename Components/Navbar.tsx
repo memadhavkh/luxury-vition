@@ -2,22 +2,20 @@
 import { FaCirclePlay } from "react-icons/fa6";
 import { GoArrowUpRight } from "react-icons/go";
 import { RxCross1 } from "react-icons/rx";
-import { GoArrowRight } from "react-icons/go";
-import { m, motion } from "framer-motion";
+// import { GoArrowRight } from "react-icons/go";
+// import { m, motion } from "framer-motion";
 import { Button } from "./ui/button";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useGlobalState } from "@/context/StateProvider";
 
 const Navbar = () => {
-  const container = useRef<HTMLSpanElement | null>(null);
   const video = useRef<HTMLVideoElement | null>(null);
   const playReel = useRef<HTMLDivElement | null>(null);
   const smallLinks = useRef<HTMLDivElement | null>(null);
   const smallLink = useRef<HTMLDivElement | null>(null);
-  const Links = useRef(null);
   const border = useRef<HTMLDivElement | null>(null);
 
   const { menu, setMenu } = useGlobalState() as any;

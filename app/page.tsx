@@ -1,8 +1,8 @@
 "use client";
 import { useEffect } from "react";
 import { gsap } from "gsap";
-import LocomotiveScroll from "locomotive-scroll";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+// import LocomotiveScroll from "locomotive-scroll";
+// import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
 import Image from "next/image";
