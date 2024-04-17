@@ -55,9 +55,19 @@ const HomePage = () => {
     });
   };
 
+  const handleCursorClick = () => {
+    const cursor = cursorRef.current;
+    cursor?.addEventListener("click", () => {
+      alert("play reel");
+    });
+    gsap.to(cursor, {
+      scale: 0,
+      opacity: 0,
+    });
+  };
   return (
     <div className="page1 w-full h-[100vh] ">
-      <div className="cursor" ref={cursorRef}>
+      <div onClick={handleCursorClick} className="cursor" ref={cursorRef}>
         <h4>Play Reel</h4>
       </div>
 
@@ -86,13 +96,13 @@ const HomePage = () => {
             />
           </h2>
 
-          <span className="relative flex  gap-2 -translate-x-[300px]">
+          <span className="relative flex  gap-2 -translate-x-[300px] opacity-30 hover:opacity-100">
             <CiSearch className="my-auto size-5 mt-2" />
-            <p className="absolute bottom-1 ml-8">Search...</p>
             <input
               type="text"
               id="search"
-              className="text-black p-3 px-1 bg-transparent outline-none border-b-[1px] border-white w-30 h-3 "
+              placeholder="Search..."
+              className="text-white p-3 px-1 bg-transparent outline-none border-b-[1px] border-white w-30 h-3 "
             />
           </span>
 

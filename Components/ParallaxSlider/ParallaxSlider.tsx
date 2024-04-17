@@ -2,12 +2,14 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import next from "next";
 
 const ParallaxSlider = () => {
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
+    arrows: false,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,

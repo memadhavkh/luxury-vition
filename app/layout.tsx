@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`  ${inter.variable} ${permanentMarker.variable}`}>
+      <body className={`${inter.variable} ${permanentMarker.variable}`}>
         <StateProvider>{children}</StateProvider>
       </body>
     </html>
