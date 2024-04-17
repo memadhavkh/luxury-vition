@@ -1,8 +1,6 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-// import LocomotiveScroll from "locomotive-scroll";
-// import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
 import Image from "next/image";
@@ -11,71 +9,9 @@ import Loader from "@/Components/Loader";
 import HomePage from "@/Components/HomePage";
 
 export default function Home() {
+  const ref = useRef(null);
   useEffect(() => {
-    // function crsrAnim() {
-    //   const cursor = document.querySelector(".cursor");
-    //   const innerContent = document.querySelector(".inner-content");
-
-    //   innerContent?.addEventListener("mousemove", (e) => {
-    //     gsap.to(cursor, {
-    //       x: e.x + "px",
-    //       y: e.y + "px",
-    //     });
-    //   });
-
-    //   innerContent?.addEventListener("mouseenter", () => {
-    //     gsap.to(cursor, {
-    //       scale: 1,
-    //       opacity: 1,
-    //     });
-    //   });
-    //   innerContent?.addEventListener("mouseleave", () => {
-    //     gsap.to(cursor, {
-    //       scale: 0,
-    //       opacity: 0,
-    //     });
-    //   });
-    // }
-    // function loco() {
-    //   gsap.registerPlugin(ScrollTrigger);
-
-    //   // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
-
-    //   const locoScroll = new LocomotiveScroll({
-    //     el: document.querySelector(".main"),
-    //     smooth: true,
-    //   });
-
-    //   // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
-    //   locoScroll.on("scroll", ScrollTrigger.update);
-
-    //   // tell ScrollTrigger to use these proxy methods for the ".main" element since Locomotive Scroll is hijacking things
-    //   ScrollTrigger.scrollerProxy(".main", {
-    //     scrollTop(value) {
-    //       return arguments.length
-    //         ? locoScroll.scrollTo(value, 0, 0)
-    //         : locoScroll.scroll.instance.scroll.y;
-    //     }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-    //     getBoundingClientRect() {
-    //       return {
-    //         top: 0,
-    //         left: 0,
-    //         width: window.innerWidth,
-    //         height: window.innerHeight,
-    //       };
-    //     },
-    //     // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-    //     pinType: document.querySelector(".main").style.transform
-    //       ? "transform"
-    //       : "fixed",
-    //   });
-
-    //   // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
-    //   ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-
-    //   // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-    //   ScrollTrigger.refresh();
-    // }
+    
     function page2TopAnim() {
       gsap.from(".first-text h3, .second-text h3", {
         y: 60,
@@ -111,21 +47,6 @@ export default function Home() {
         stagger: 0.1,
       });
     }
-    // function page4Anim() {
-    //   const videos = document.querySelectorAll(
-    //     ".page4 .page4-video .item video"
-    //   );
-
-    //   videos.forEach((video) => {
-    //     video.addEventListener("mouseenter", () => {
-    //       video.play();
-    //     });
-    //     video.addEventListener("mouseleave", () => {
-    //       video.pause();
-    //       video.currentTime = 0;
-    //     });
-    //   });
-    // }
     function page5TopAnim() {
       gsap.from(".page5 .page5-top .top-text h3", {
         y: 60,
@@ -255,9 +176,23 @@ export default function Home() {
     page7TopAnim();
     swiper();
   }, []);
+  useEffect(()=>{
+    import("locomotive-scroll").then((locomotiveModule) => {
+      let scroll = new locomotiveModule.default({
+        el: document.querySelector("[data-scroll-container]"),
+        smooth: true,
+        smoothMobile: true,
+        resetNativeScroll: true
+      });
+      scroll.destroy();
+      setTimeout(() => {
+        scroll.init();
+      }, 400);
+    })
+  })
 
-  return (
-    <div className="main  min-h-screen">
+  return (<> 
+    <main ref={ref} id="main-container" data-scroll-container className="main  min-h-screen">
       <Navbar />
       <Loader />
       <HomePage />
@@ -724,6 +659,8 @@ export default function Home() {
           </h1>
         </div>
       </footer>
-    </div>
+    </main>
+  
+    </>
   );
 }

@@ -32,9 +32,9 @@ const HomePage = () => {
 
   return (
     <div className="page1 w-full h-[100vh] ">
-      <div className="cursor">
+      {/* <div className="cursor">
         <h4>Play Reel</h4>
-      </div>
+      </div> */}
 
       <video
         autoPlay

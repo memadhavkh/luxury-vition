@@ -2,11 +2,10 @@
 import { FaCirclePlay } from "react-icons/fa6";
 import { GoArrowUpRight } from "react-icons/go";
 import { RxCross1 } from "react-icons/rx";
-// import { GoArrowRight } from "react-icons/go";
-// import { m, motion } from "framer-motion";
+import { GoArrowRight } from "react-icons/go";
 import { Button } from "./ui/button";
-// import { useEffect } from "react";
-import { useRef } from "react";
+import {motion} from 'framer-motion'
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useGlobalState } from "@/context/StateProvider";
@@ -17,6 +16,9 @@ const Navbar = () => {
   const smallLinks = useRef<HTMLDivElement | null>(null);
   const smallLink = useRef<HTMLDivElement | null>(null);
   const border = useRef<HTMLDivElement | null>(null);
+  const [hovering1, setHovering1] = useState(false);
+  const [hovering2, setHovering2] = useState(false);
+  const [hovering3, setHovering3] = useState(false);
 
   const { menu, setMenu } = useGlobalState() as any;
 
@@ -96,21 +98,45 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="flex flex-col mr-[10rem] relative mt-[-10px]">
-          <h1 className="Links text-[43px] leading-none font-normal ">Women</h1>
-          <h1 className="Links text-[43px] leading-none font-normal">Men</h1>
-          <h1 className="Links text-[43px] leading-none font-normal">Bags</h1>
-          <h1 className="Links text-[43px] leading-none font-normal">
-            Watches
-          </h1>
-          <h1 className="Links text-[43px] leading-none font-normal">
-            Perfumes
-          </h1>
+        <div className="flex flex-col mr-[10rem] mt-[-10px]">
+          <div className="relative flex items-start elem">
+          <div className="relative h-[3rem] overflow-hidden z-[99]">
+            <h1 className="text-5xl">Women</h1>
+            <h1 className="text-5xl">Women</h1>
+          </div>
+          </div>
+          <div className="relative flex items-start elem">
+          <div className="relative h-[3rem] overflow-hidden z-[99]">
+            <h1 className="text-5xl">Men</h1>
+            <h1 className="text-5xl ">Men</h1>
+          </div>
+          </div>
+          <div className="relative flex items-start elem">
+          <div className="relative h-[3.3rem] overflow-hidden z-[99]">
+            <h1 className="text-5xl">Bags</h1>
+            <h1 className="text-5xl">Bags</h1>
+          </div>
+          </div>
+          <div className="relative flex items-start elem">
+          <div className="relative h-[3rem] overflow-hidden z-[99]">
+            <h1 className="text-5xl">Watches</h1>
+            <h1 className="text-5xl">Watches</h1>
+          </div>
+          </div>
+          <div className="relative flex items-start elem">
+          <div className="relative h-[3rem] overflow-hidden z-[99]">
+            <h1 className=" text-5xl">Perfumes</h1>
+            <h1 className="text-5xl">Perfumes</h1>
+          </div>
+          </div>
           <Button
             variant="outline"
-            className="Links mt-5 border-black bg-[#FEFAF6]"
+            className="Links mt-5 border-black bg-[#FEFAF6] discover-btn relative flex elem hover:text-white"
           >
-            Discover Collections
+          <div className="relative h-[2rem] overflow-hidden z-[99]">
+            <h1 className="text-lg">Discover Collections</h1>
+            <h1 className="text-lg ">Discover Collections</h1>
+          </div>
           </Button>
         </div>
       </div>
@@ -125,14 +151,26 @@ const Navbar = () => {
           Shop Smart, Live Well.™
         </h2>
         <div ref={smallLinks} className="flex items-center gap-2 mr-5 ">
-          <h2 className="flex">
-            X <GoArrowUpRight className="translate-y-1" />
+          <h2 className="flex" onMouseEnter={() => setHovering1(true)} onMouseLeave={() => setHovering1(false)}>
+            X {hovering1 ? (
+              <GoArrowRight className="translate-y-1 "/>
+            ) : (
+              <GoArrowUpRight className="translate-y-1 " />
+            )}
           </h2>
-          <h2 className="flex">
-            Instagram <GoArrowUpRight className="translate-y-1" />
+          <h2 className="flex" onMouseEnter={() => setHovering2(true)} onMouseLeave={() => setHovering2(false)}>
+            Instagram {hovering2 ? (
+              <GoArrowRight className="translate-y-1"/>
+            ) : (
+              <GoArrowUpRight className="translate-y-1" />
+            )}
           </h2>
-          <h2 className="flex">
-            Linkedin <GoArrowUpRight className="translate-y-1" />
+          <h2 className="flex" onMouseEnter={() => setHovering3(true)} onMouseLeave={() => setHovering3(false)}>
+            Linkedin {hovering3 ? (
+              <GoArrowRight className="translate-y-1"/>
+            ) : (
+              <GoArrowUpRight className="translate-y-1" />
+            )}
           </h2>
         </div>
       </div>
