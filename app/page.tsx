@@ -9,33 +9,10 @@ import Image from "next/image";
 import Navbar from "@/Components/Navbar";
 import Loader from "@/Components/Loader";
 import HomePage from "@/Components/HomePage";
+import Page2 from "@/Components/Page2";
 
 export default function Home() {
   useEffect(() => {
-    // function crsrAnim() {
-    //   const cursor = document.querySelector(".cursor");
-    //   const innerContent = document.querySelector(".inner-content");
-
-    //   innerContent?.addEventListener("mousemove", (e) => {
-    //     gsap.to(cursor, {
-    //       x: e.x + "px",
-    //       y: e.y + "px",
-    //     });
-    //   });
-
-    //   innerContent?.addEventListener("mouseenter", () => {
-    //     gsap.to(cursor, {
-    //       scale: 1,
-    //       opacity: 1,
-    //     });
-    //   });
-    //   innerContent?.addEventListener("mouseleave", () => {
-    //     gsap.to(cursor, {
-    //       scale: 0,
-    //       opacity: 0,
-    //     });
-    //   });
-    // }
     // function loco() {
     //   gsap.registerPlugin(ScrollTrigger);
 
@@ -245,7 +222,6 @@ export default function Home() {
         stagger: 1,
       });
     }
-    // crsrAnim();
     // loco();
     page2TopAnim();
     page3TextAnim();
@@ -261,60 +237,8 @@ export default function Home() {
       <Navbar />
       <Loader />
       <HomePage />
+      <Page2 />
 
-      <div className="page2">
-        <div className="page2-top">
-          <div className="first-text">
-            <div id="one">
-              <h3>Full-service creative agency.</h3>
-            </div>
-            <div id="two">
-              <h3>Two engagement models.</h3>
-            </div>
-          </div>
-          <div className="second-text">
-            <h3>Paris & San Diego</h3>
-          </div>
-        </div>
-        <div className="page2-top-border"></div>
-        <div className="page2-bottom">
-          <div className="btm-text">
-            <h2>
-              <div className="up">
-                <span>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We are a
-                  digital brand accelerator. We
-                </span>
-              </div>
-            </h2>
-            <h2>
-              <div className="up">
-                <span> design, develop, and scale market-defining</span>
-              </div>
-            </h2>
-            <h2>
-              <div className="up">
-                <span>brands by unlocking their hidden potential.</span>
-              </div>
-            </h2>
-            <h2>
-              <div className="up">
-                <span> Choose full cash compensation or offset up to</span>
-              </div>
-            </h2>
-            <h2>
-              <div className="up">
-                <span> 50% of our fees for equity in your company. Your</span>
-              </div>
-            </h2>
-            <h2>
-              <div className="up">
-                <span>vision, your decision.</span>
-              </div>
-            </h2>
-          </div>
-        </div>
-      </div>
       <div className="page3">
         <div className="page3-text">
           <h4>

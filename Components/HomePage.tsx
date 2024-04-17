@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useGlobalState } from "@/context/StateProvider";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Image from "next/image";
@@ -10,10 +10,7 @@ import { Button } from "./ui/button";
 const HomePage = () => {
   const { setMenu } = useGlobalState() as any;
   const btnRef = React.useRef<HTMLButtonElement>(null);
-
-  const handleMenu = () => {
-    setMenu("active");
-  };
+  const cursorRef = React.useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     gsap.to(" .Links ", {
@@ -30,9 +27,37 @@ const HomePage = () => {
     });
   }, []);
 
+  const handleMenu = () => {
+    setMenu("active");
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const cursor = cursorRef.current;
+    gsap.to(cursor, {
+      x: e.clientX,
+      y: e.clientY,
+    });
+  };
+
+  const handleMouseEnter = () => {
+    const cursor = cursorRef.current;
+    gsap.to(cursor, {
+      scale: 1,
+      opacity: 1,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    const cursor = cursorRef.current;
+    gsap.to(cursor, {
+      scale: 0,
+      opacity: 0,
+    });
+  };
+
   return (
     <div className="page1 w-full h-[100vh] ">
-      <div className="cursor">
+      <div className="cursor" ref={cursorRef}>
         <h4>Play Reel</h4>
       </div>
 
@@ -44,7 +69,12 @@ const HomePage = () => {
         className="w-[100vw] h-[100vh]"
       ></video>
 
-      <div className="inner-content h-full w-full text-white relative flex items-center justify-between flex-col z-5">
+      <div
+        onMouseMove={handleMouseMove}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className="inner-content h-full w-full text-white relative flex items-center justify-between flex-col z-5"
+      >
         <nav className="w-full flex items-center justify-between font-nb px-12 py-3 text-xs">
           <h2>
             <Image
@@ -77,7 +107,7 @@ const HomePage = () => {
           </h2>
         </nav>
 
-        <h2 className="text-center text-[230px] font-bold  leading-none mb-[180px]">
+        <h2 className="text-center text-[230px] font-bold  leading-none mb-[180px] ">
           <span className="inline-block  Links" style={{ fontFamily: "rejo" }}>
             s
           </span>
