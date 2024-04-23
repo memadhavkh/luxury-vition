@@ -61,8 +61,6 @@ const ParallaxSlider = () => {
 
   var carouselElement = carouselRef.current;
 
-  
-
   return (
     <Flickity
       ref={carouselRef}

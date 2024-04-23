@@ -96,7 +96,7 @@ const HomePage = () => {
             />
           </h2>
 
-          <span className="relative flex  gap-2 -translate-x-[300px] opacity-30 hover:opacity-100">
+          {/* <span className="relative flex  gap-2 -translate-x-[300px] opacity-30 hover:opacity-100">
             <CiSearch className="my-auto size-5 mt-2" />
             <input
               type="text"
@@ -104,7 +104,7 @@ const HomePage = () => {
               placeholder="Search..."
               className="text-white p-3 px-1 bg-transparent outline-none border-b-[1px] border-white w-30 h-3 "
             />
-          </span>
+          </span> */}
 
           <h2 id="menu" className="relative">
             <a href="#" onClick={handleMenu}>

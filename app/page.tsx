@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
@@ -8,6 +8,7 @@ import Navbar from "@/Components/Navbar";
 import Loader from "@/Components/Loader";
 import HomePage from "@/Components/HomePage";
 import Page2 from "@/Components/Page2";
+import FlotingNavBar from "@/Components/FlotingNavBar";
 
 export default function Home() {
   const ref = useRef(null);
@@ -229,6 +230,16 @@ export default function Home() {
       }, 400);
     });
   });
+  const [showFlotingBar, setShowFlotingBar] = useState(true);
+
+  const handleFloatingBar = () => {
+    if (window.scrollY > 100) {
+      setShowFlotingBar(true);
+      console.log("show");
+    } else {
+      setShowFlotingBar(false);
+    }
+  };
 
   return (
     <>
@@ -238,6 +249,7 @@ export default function Home() {
         data-scroll-container
         className="main  min-h-screen"
       >
+        {showFlotingBar ? <FlotingNavBar /> : null}
         <Navbar />
         <Loader />
         <HomePage />

@@ -3,7 +3,11 @@ import Parallax from "./Parallax";
 import ParallaxSlider from "./ParallaxSlider/ParallaxSlider";
 
 const Page2 = () => {
-  return <ParallaxSlider />;
+  return (
+    <>
+      <ParallaxSlider />
+    </>
+  );
 };
 
 export default Page2;
