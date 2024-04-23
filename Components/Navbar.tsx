@@ -133,7 +133,7 @@ const Navbar = () => {
             variant="outline"
             className="Links mt-5 border-black bg-[#FEFAF6] discover-btn relative flex elem hover:text-white"
           >
-            <div className="relative h-[2rem] overflow-hidden z-[99]">
+            <div className="relative h-[2rem] overflow-hidden z-[99] ">
               <h1 className="text-lg">Discover Collections</h1>
               <h1 className="text-lg ">Discover Collections</h1>
             </div>
