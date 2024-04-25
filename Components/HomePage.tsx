@@ -4,7 +4,6 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { CiSearch } from "react-icons/ci";
 import { Button } from "./ui/button";
 
 const HomePage = () => {
@@ -57,6 +56,7 @@ const HomePage = () => {
 
   const handleCursorClick = () => {
     const cursor = cursorRef.current;
+    console.log(cursor);
     cursor?.addEventListener("click", () => {
       alert("play reel");
     });

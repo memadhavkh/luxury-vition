@@ -2,9 +2,7 @@
 import { FaCirclePlay } from "react-icons/fa6";
 import { GoArrowUpRight } from "react-icons/go";
 import { RxCross1 } from "react-icons/rx";
-import { GoArrowRight } from "react-icons/go";
 import { Button } from "./ui/button";
-import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
